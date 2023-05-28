@@ -75,7 +75,7 @@ const Books = () => {
   };
 
   return (
-    <div className="my-10 flex flex-col">
+    <div className="flex flex-col">
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -88,7 +88,16 @@ const Books = () => {
         pauseOnHover
         theme="dark"
       />
-      <div className="create-bar flex justify-center">
+      <div className="flex justify-end gap-x-1 mr-10 my-2">
+        <button>
+        <Link to="/register">Register</Link>
+        </button>
+        <span>/</span>
+        <button>
+          <Link to="/login">Login</Link>
+        </button>
+      </div>
+      <div className="create-bar flex justify-center my-2">
         <div className="flex flex-col justify-center">
           <div className="flex justify-center gap-x-1">
             <label className="flex flex-col font-medium text-xs">

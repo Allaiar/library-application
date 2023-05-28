@@ -706,10 +706,26 @@
       "body": "ipsum dolor sit amet consectetur adipisicing elit. Voluptatum tenetur distinctio eum ratione nam. Velit tenetur vitae, voluptate impedit quas provident corporis consequatur harum incidunt unde laborum labore nisi architecto",
       "author": "at nam consequatur ea labore ea harum",
       "title": "tas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
+    },
+    {
+      "title": "lalalalalal",
+      "author": "okeokeoke",
+      "body": "",
+      "status": "Читаю",
+      "id": 101
     }
   ],
-  "comments": [],
-  "profile": {
-    "name": "typicode"
-  }
+  "comments": [
+    {
+      "id": "allayar",
+      "name": "radzhapov",
+      "password": "nazira647",
+      "email": "radzhapov.allayar@gmail.com",
+      "phone": "0990200225",
+      "country": "Киргизия",
+      "address": "Ильменская 55",
+      "gender": "male"
+    }
+  ],
+  "profile": {}
 }
