@@ -1,5 +1,5 @@
 {
-  "posts": [
+  "books": [
     {
       "status": "Прочитано",
       "id": 0,
@@ -713,9 +713,23 @@
       "body": "",
       "status": "Читаю",
       "id": 101
+    },
+    {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos ratione alias repellendus assumenda dolor nam similique aperiam atque, magnam asperiores commodi adipisci cupiditate, voluptas, quod sit facere autem reiciendis maiores.",
+      "author": "Aliko",
+      "body": "",
+      "status": "Читаю",
+      "id": 102
+    },
+    {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos ratione alias repellendus assumenda dolor nam similique aperiam atque, magnam asperiores commodi adipisci cupiditate, voluptas, quod sit facere autem reiciendis maiores.",
+      "author": "okeokeoke",
+      "body": "",
+      "status": "Прочитано",
+      "id": 103
     }
   ],
-  "comments": [
+  "users": [
     {
       "id": "allayar",
       "name": "radzhapov",
@@ -725,7 +739,16 @@
       "country": "Киргизия",
       "address": "Ильменская 55",
       "gender": "male"
+    },
+    {
+      "id": "yasmina",
+      "name": "radzhapova",
+      "password": "yasmina647",
+      "email": "radzhapov.allayar@gmail.com",
+      "phone": "0990200225",
+      "country": "Киргизия",
+      "address": "Ильменская 55",
+      "gender": "female"
     }
-  ],
-  "profile": {}
+  ]
 }

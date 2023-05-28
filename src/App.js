@@ -11,18 +11,18 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 
 function App() {
-  const [posts, setPosts] = useState([]); //Массив книг
+  const [books, setBooks] = useState([]); //Массив книг
   //Запрос данных с помощью useEffect
   useEffect(() => {
     axios
-      .get("http://localhost:8000/posts")
-      .then((res) => setPosts(res.data))
+      .get("http://localhost:8000/books")
+      .then((res) => setBooks(res.data))
       .catch(() => toast.error("Ошибка сервера"));
   }, []);
 
   return (
     <Routes>
-      <Route path="/OneBigBook/:id" element={<OneBigBook posts={posts} />} />
+      <Route path="/OneBigBook/:id" element={<OneBigBook books={books} />} />
       {/*Ссылка для страницы отдельной книги*/}
       <Route path="/" element={<Books />} />
       {/*Ссылка на страницу книг*/}

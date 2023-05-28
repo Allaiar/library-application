@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Books = () => {
   //State компоненты
-  const [posts, setPosts] = useState([]); //Массив книг
+  const [books, setbooks] = useState([]); //Массив книг
   const [author, setAuthor] = useState(""); //Автор книги
   const [status, setStatus] = useState("Не прочитано"); //Статус книги
   const [title, setTitle] = useState(""); //Название книги
@@ -18,16 +18,16 @@ const Books = () => {
   //Запрос данных с помощью useEffect
   useEffect(() => {
     axios
-      .get("http://localhost:8000/posts")
-      .then((res) => setPosts(res.data))
+      .get("http://localhost:8000/books")
+      .then((res) => setbooks(res.data))
       .catch(() => toast.error("Ошибка сервера"));
   }, []);
 
   //Удаление книги
   const deleteBook = (id) => {
-    axios.delete(`http://localhost:8000/posts/${id}`).then(() => {
-      const newPosts = posts.filter((post) => post.id !== id);
-      setPosts(newPosts);
+    axios.delete(`http://localhost:8000/books/${id}`).then(() => {
+      const newbooks = books.filter((book) => book.id !== id);
+      setbooks(newbooks);
       toast.info("Вы успешно удалили книгу");
     });
   };
@@ -35,7 +35,7 @@ const Books = () => {
   //Создание новой книги
   const createBook = () => {
     axios
-      .post("http://localhost:8000/posts", {
+      .post("http://localhost:8000/books", {
         title: title,
         author: author,
         body: body,
@@ -43,8 +43,8 @@ const Books = () => {
       })
       .then((res) => {
         toast.info("Вы создали книгу");
-        const postListItem = res.data;
-        setPosts([postListItem, ...posts]);
+        const bookListItem = res.data;
+        setbooks([bookListItem, ...books]);
         setStatus("");
         setTitle("");
         setAuthor("");
@@ -55,18 +55,18 @@ const Books = () => {
   //Редактирование книги
   const editBooks = (id) => {
     axios
-      .put(`http://localhost:8000/posts/${id}`, {
+      .put(`http://localhost:8000/books/${id}`, {
         author: author,
         title: title,
         status: status,
         body: body,
       })
       .then(() => {
-        const editBook = posts.map((post) =>
-          post.id === id ? { ...post, title: title, author: author } : post
+        const editBook = books.map((book) =>
+          book.id === id ? { ...book, title: title, author: author } : book
         );
         toast.info("Изменения прошли успешно");
-        setPosts(editBook);
+        setbooks(editBook);
         setEdit("");
         setAuthor("");
         setTitle("");
@@ -164,12 +164,12 @@ const Books = () => {
         </div>
       </div>
       <div className="mx-auto">
-        {posts.map((post) => (
+        {books.map((book) => (
           <div
-            className="post rounded-2xl pt-2 my-5 max-w-sm bg-slate-400"
-            key={post.id}
+            className="book rounded-2xl pt-2 my-5 max-w-sm bg-slate-400"
+            key={book.id}
           >
-            {edit === post.id ? (
+            {edit === book.id ? (
               <div className="ml-3 pb-3">
                 <p>Внесите изменения:</p>
                 <div className="flex gap-x-1">
@@ -230,7 +230,7 @@ const Books = () => {
                 </form>
                 <button
                   className="font-medium text-xl"
-                  onClick={() => editBooks(post.id)}
+                  onClick={() => editBooks(book.id)}
                 >
                   Сохранить
                 </button>
@@ -238,20 +238,20 @@ const Books = () => {
             ) : (
               <div
                 className="flex justify-center mx-auto flex-col bg-slate-400 max-w-sm rounded-2xl pt-2"
-                key={post.id}
+                key={book.id}
               >
                 <Link
                   className="mx-auto pl-5 pr-5"
-                  to={`/OneBigBook/${post.id}`}
+                  to={`/OneBigBook/${book.id}`}
                 >
-                  <h5 className="font-medium">{post.title}</h5>
-                  <h3 className="text-right italic max-w-sm">{post.author}</h3>
+                  <h5 className="font-medium">{book.title}</h5>
+                  <h3 className="text-right italic max-w-sm">{book.author}</h3>
                 </Link>
                 <div className="mx-auto my-5">
-                  <button className="mr-2" onClick={() => deleteBook(post.id)}>
+                  <button className="mr-2" onClick={() => deleteBook(book.id)}>
                     Удалить
                   </button>
-                  <button className="edit" onClick={() => setEdit(post.id)}>
+                  <button className="edit" onClick={() => setEdit(book.id)}>
                     Изменить
                   </button>
                 </div>

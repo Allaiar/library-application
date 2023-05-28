@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     if (validate()) {
       axios
-        .get(`http://localhost:8000/comments/${userName}/`)
+        .get(`http://localhost:8000/users/${userName}/`)
         .then(() => {
             toast.success("Вы успешно вошли в свой аккаунт!");
             setTimeout(() => {

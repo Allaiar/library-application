@@ -21,7 +21,7 @@ const Register = () => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:8000/comments", {
+      .post("http://localhost:8000/users", {
         id, 
         name, password, email, phone, country, address, gender
       })
